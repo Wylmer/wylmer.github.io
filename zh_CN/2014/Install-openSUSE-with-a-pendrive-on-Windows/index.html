@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>在 Windows 下用U盘安装 openSUSE | Wylmer’s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="不使用光盘安装系统已经是大势所趋。Ubuntu系的iso文件刻录到U盘安装相当容易。但是想装个openSUSE却费了好多事。记录以供后人参考。 系统硬件：  ASUS 的主板，BIOS是那种图形化的，进去能用鼠标操作的。但是貌似也不是UEFI。没搞清楚 硬盘已经安装了Win7、Win8和Ubuntu(尝试安装的过程中格式化了) 一枚2G以上的U盘。  安装方法：  从openSUSE的网站上下载安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Windows 下用U盘安装 openSUSE">
+<meta property="og:url" content="http://wylmer.github.io/zh_CN/2014/Install-openSUSE-with-a-pendrive-on-Windows/index.html">
+<meta property="og:site_name" content="Wylmer’s Blog">
+<meta property="og:description" content="不使用光盘安装系统已经是大势所趋。Ubuntu系的iso文件刻录到U盘安装相当容易。但是想装个openSUSE却费了好多事。记录以供后人参考。 系统硬件：  ASUS 的主板，BIOS是那种图形化的，进去能用鼠标操作的。但是貌似也不是UEFI。没搞清楚 硬盘已经安装了Win7、Win8和Ubuntu(尝试安装的过程中格式化了) 一枚2G以上的U盘。  安装方法：  从openSUSE的网站上下载安">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2015-12-19T04:07:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在 Windows 下用U盘安装 openSUSE">
+<meta name="twitter:description" content="不使用光盘安装系统已经是大势所趋。Ubuntu系的iso文件刻录到U盘安装相当容易。但是想装个openSUSE却费了好多事。记录以供后人参考。 系统硬件：  ASUS 的主板，BIOS是那种图形化的，进去能用鼠标操作的。但是貌似也不是UEFI。没搞清楚 硬盘已经安装了Win7、Win8和Ubuntu(尝试安装的过程中格式化了) 一枚2G以上的U盘。  安装方法：  从openSUSE的网站上下载安">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-56934793-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Share ideas and experiences</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/About-Me/zh_CN/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    Sense categoria
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Install-openSUSE-with-a-pendrive-on-Windows" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        在 Windows 下用U盘安装 openSUSE
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/zh_CN/2014/Install-openSUSE-with-a-pendrive-on-Windows/" class="article-date">
+            <time datetime="2014-04-15T04:00:00.000Z" itemprop="datePublished">2014-04-15</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>不使用光盘安装系统已经是大势所趋。Ubuntu系的iso文件刻录到U盘安装相当容易。但是想装个openSUSE却费了好多事。记录以供后人参考。</p>
+<p>系统硬件：</p>
+<ul>
+<li>ASUS 的主板，BIOS是那种图形化的，进去能用鼠标操作的。但是貌似也不是UEFI。没搞清楚</li>
+<li>硬盘已经安装了Win7、Win8和Ubuntu(尝试安装的过程中格式化了)</li>
+<li>一枚2G以上的U盘。</li>
+</ul>
+<p>安装方法：</p>
+<ol>
+<li><p>从openSUSE的网站上下载安装镜像，我使用的是KDE Live镜像。</p>
+</li>
+<li><p>下载安装<code>Win32DiskImager</code>这个软件。<strong>注意</strong>，<code>Ultraiso</code>、<code>Unetbootin</code>亲测<strong>不好使</strong>。<code>EasyBCD</code>的<strong>光盘引导方式也不行</strong>。Linux下添加Grub启动项<strong>也不行</strong>(可能是我姿势不对)。各位不要作无谓的挣扎了。</p>
+<blockquote>
+<p>Linux下用<code>dd</code>命令应该是可以的，我觉得。未亲测</p>
+</blockquote>
+</li>
+<li><p>刻录。重启，从U盘启动。一般是开机时按<code>F8</code>出现启动选择菜单。或者进BIOS自行设置</p>
+<blockquote>
+<p>注意，ASUS主板的启动菜单里U盘会显示出两个，一个是<code>xxx</code>(U盘名)，另一个是<code>UEFI xxx</code>(U盘名)。<strong>要选不带UEFI的</strong>。</p>
+</blockquote>
+</li>
+<li><p>正常安装。</p>
+</li>
+</ol>
+<hr>
+<p>以下是吐槽部分：</p>
+<a id="more"></a>
+<p>之前使用的是Linux Mint的KDE系统，挺漂亮的。但是<strong>源不快啊！！</strong> 搞不明白这帮发行版为什么要自己搞软件管理器。Apper不是很好么！嗯，当然重装的原因大概是我添加了Kubuntu的backports源，造成了软件依赖冲突，安装软件总是报错，关于python-sid的，某某脚本错误什么的。</p>
+<p>本来的选择是换回Kubuntu。但是装完这货发现磁盘奇慢无比。不知道哪里的问题。以前遇到过，好像一度启动失败，检查了下磁盘坏块才进去。看来这货没有反省自己。安装完中文字体没有，中文是诡异的点阵字体，装完文泉驿字体设置后还有一些GUI是这样。而且，Kubuntu改用了<strong>非常非常不好用的Moun软件管理器</strong>，找包完全不能，而且必须事先知道包在哪个分类才行。好吧。Kubuntu再见。</p>
+<p>然后想试试Fedora。这货U盘启动支持<del>还挺好的</del>(用它自家的刻录工具行，用<code>Ultraiso</code>也启动不了，好像)，能进桌面。但是安装时卡在了<strong>磁盘分区</strong>这里。我明明给它指定了<code>/</code>分区和<code>/home</code>分区，这货却呆萌的说我的磁盘没有空间。怎么哄都无济于事。好吧。看来是不喜欢我的磁盘。那我只好放弃你了。(估计这是Fedora使用了新的安装程序造成的。没事瞎TMD折腾啥。一点也没看出新安装器有啥好来。)</p>
+<p>然后想装文明用语试试Arch。但是这货的安装iso根本不支持U盘刻录安装。启动时能进命令行，但是安装指南中所说的各种命令根本不能使。好像尝试用了官方推荐的<code>dd</code>方法刻录也不行。好吧，我的计算机这么奇葩吗？您这样倔强的不愿意将就？</p>
+<p>好吧。尝试业内传说的最华丽的发行版openSUSE吧。其实在Fedora之前我就试了它了。但是用前面说的各种工具刻录或启动，<strong>均失败</strong>。启动时显示</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">failed <span class="keyword">to</span> <span class="builtin-name">find</span> MBR</div></pre></td></tr></table></figure>
+<p>啥啥啥的。找了半天网上的帮助，也没说出个啥来。</p>
+<p>心中骂了无数遍。后来抱着试试看的心理用了<code>Win32DiskImager</code>，靠，居然可以了。心里不知道是什么滋味。下面就很顺利了。openSUSE的安装程序很好很漂亮。心动了的说。尤其强大的是它直接选择了<strong><code>/</code>分区默认格式化、<code>/home</code>分区默认不格式化</strong>，太强大了。这一点绝对要点赞！</p>
+<p>适应openSUSE中。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://wylmer.github.io/zh_CN/2014/Install-openSUSE-with-a-pendrive-on-Windows/" data-id="cjdd383ey000o836hd7dacrfc" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>seguir:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="https://plus.google.com/102824714039668368931" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/wylmer" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/en/2014/Install-openSUSE-with-a-pendrive-on-Windows/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">més nou</strong>
+        <p class="article-nav-title">
+        
+            Install openSUSE with a pendrive on Windows
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/en/2013/Fix-Matlab-font-problem/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">antic</strong>
+        <p class="article-nav-title">fix Matlab Chinese font rendering problem in Linx</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感悟/">感悟</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">etiquetes</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/感悟/">感悟</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://www.gitbook.com/book/wylmer_cn/filesystem-hierarchy-standard/details">文件系统层次结构中文版</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Wylmer Wang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://wylmer.github.io/zh_CN/2014/Install-openSUSE-with-a-pendrive-on-Windows/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

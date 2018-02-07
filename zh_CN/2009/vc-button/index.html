@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>转：VC界面美化之按钮 | Wylmer’s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="学习" />
+    
+    <meta name="description" content="第一种：Button属性里Style的Bitmap选择true 12345CBitmap Bitmap;Bitmap.LoadBitmap(IDB_BITMAP1); //事先添加位图资源IDB_BITMAP1HBITMAP hBitmap=(HBITMAP)Bitmap.Detach();CButton *pButton=(CButton*)GetDlgItem(IDCANCEL);pButto">
+<meta name="keywords" content="学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="转：VC界面美化之按钮">
+<meta property="og:url" content="http://wylmer.github.io/zh_CN/2009/vc-button/index.html">
+<meta property="og:site_name" content="Wylmer’s Blog">
+<meta property="og:description" content="第一种：Button属性里Style的Bitmap选择true 12345CBitmap Bitmap;Bitmap.LoadBitmap(IDB_BITMAP1); //事先添加位图资源IDB_BITMAP1HBITMAP hBitmap=(HBITMAP)Bitmap.Detach();CButton *pButton=(CButton*)GetDlgItem(IDCANCEL);pButto">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2016-09-11T09:26:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="转：VC界面美化之按钮">
+<meta name="twitter:description" content="第一种：Button属性里Style的Bitmap选择true 12345CBitmap Bitmap;Bitmap.LoadBitmap(IDB_BITMAP1); //事先添加位图资源IDB_BITMAP1HBITMAP hBitmap=(HBITMAP)Bitmap.Detach();CButton *pButton=(CButton*)GetDlgItem(IDCANCEL);pButto">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-56934793-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Share ideas and experiences</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/About-Me/zh_CN/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    Sense categoria
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-vc-button" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        转：VC界面美化之按钮
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/zh_CN/2009/vc-button/" class="article-date">
+            <time datetime="2009-03-01T10:55:06.000Z" itemprop="datePublished">2009-03-01</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/学习/">学习</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>第一种：<br><code>Button</code>属性里<code>Style</code>的<code>Bitmap</code>选择<code>true</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CBitmap Bitmap;</div><div class="line">Bitmap.LoadBitmap(IDB_BITMAP1); <span class="comment">//事先添加位图资源IDB_BITMAP1</span></div><div class="line">HBITMAP hBitmap=(HBITMAP)Bitmap.Detach();</div><div class="line">CButton *pButton=(CButton*)GetDlgItem(IDCANCEL);</div><div class="line">pButton-&gt;SetBitmap(hBitmap);</div></pre></td></tr></table></figure> 
+<p>另外，可以设置<code>Button</code>的<code>Style</code>为<code>BS_FLAT</code>，还有通过<code>BS_TOP,BS_BOTTOM,BS_LEFT</code>等设置<code>bitmap</code>的放置方式，效果不是很好。因为图片不会自动拉伸，设置为<code>BS_FLAT</code>时有一个灰框，看起来不好看。</p>
+<p>第二种：<br>可以采用<code>CButtonST</code>控件，挺好用的，比MFC的那些封装好用。这个控件是个人做的，要下载滴。本人觉得还是要学习一下原理，用它还是有拘束。倒也可以。<br>假设按钮ID为<code>IDC_BUTTON1</code> </p>
+<ol>
+<li>添加成员变量 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CButtonST m_btn; </div></pre></td></tr></table></figure>
+2. 添加位图资源，ID设为`IDB_BITMAP1`
+3. 在`OnInitDialog`函数中初始化按钮
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">m_btn.SubclassDlgItem(IDC_BUTTON1,<span class="keyword">this</span>); </div><div class="line">m_btn.SetBitmaps(IDB_BITMAP1,RGB(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)); </div><div class="line">m_btn.OffsetColor(CButtonST::BTNST_COLOR_BK_IN, <span class="number">30</span>); </div></pre></td></tr></table></figure>
+<blockquote>
+<p>注: 上面的<code>SetBitmaps</code>函数会将图片中颜色值为<code>RGB(0,0,0)</code>的点设为透明。</p>
+</blockquote>
+</li>
+</ol>
+<p>第三种：<br>把<code>button</code>按钮属性设置为<code>owner_draw</code>，然后映射<code>onDrawItem</code>消息，在<code>ondraw()</code>函数内自己绘制：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> CUi6Dlg::OnDrawItem(<span class="keyword">int</span> nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(nIDCtl == IDC_HELLO_CFAN) &#123;</div><div class="line">		<span class="comment">//绘制按钮框架</span></div><div class="line">		UINT uStyle = DFCS_BUTTONPUSH;</div><div class="line">		<span class="comment">//是否按下去了？</span></div><div class="line">		<span class="keyword">if</span> (lpDrawItemStruct-&gt;itemState &amp; ODS_SELECTED)</div><div class="line">			uStyle |= DFCS_PUSHED;</div><div class="line">		CDC dc;</div><div class="line">		dc.Attach(lpDrawItemStruct-&gt;hDC);</div><div class="line">		dc.DrawFrameControl(&amp;lpDrawItemStruct-&gt;rcItem, DFC_BUTTON, uStyle);</div><div class="line">		<span class="comment">//输出文字</span></div><div class="line">		dc.SelectObject(&amp;m_Font);</div><div class="line">		dc.SetTextColor(RGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>));</div><div class="line">		dc.SetBkMode(TRANSPARENT);</div><div class="line">		CString sText;</div><div class="line">		m_HelloCFan.GetWindowText(sText);</div><div class="line">		dc.TextOut(lpDrawItemStruct-&gt;rcItem.left + <span class="number">20</span>, lpDrawItemStruct-&gt;rcItem.top + <span class="number">20</span>, sText);</div><div class="line">		<span class="comment">//是否得到焦点</span></div><div class="line">		<span class="keyword">if</span>(lpDrawItemStruct-&gt;itemState &amp; ODS_FOCUS) &#123;</div><div class="line">			<span class="comment">//画虚框</span></div><div class="line">			CRect rtFocus = lpDrawItemStruct-&gt;rcItem;</div><div class="line">			rtFocus.DeflateRect(<span class="number">3</span>, <span class="number">3</span>);</div><div class="line">			dc.DrawFocusRect(&amp;rtFocus);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	CDialog::OnDrawItem(nIDCtl, lpDrawItemStruct);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第四种：</p>
+<ol>
+<li>按钮属性<code>Owne_Draw</code>选择<code>true</code>，假设按钮ID为<code>IDC_BUTTON1</code></li>
+<li>定义private变量：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CBitmapButton m_button;</div></pre></td></tr></table></figure></li>
+<li>在初始化里<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">m_button.LoadBitmaps(_T(“IDB_BITMAP3”),_T(“IDB_BITMAP4”),_T(“IDB_BITMAP3”),_T(“IDB_BITMAP5”));</div><div class="line"></div><div class="line">m_button.SubclassDlgItem(IDC_BUTTON1, <span class="keyword">this</span>);</div><div class="line">m_button.SizeToContent();</div></pre></td></tr></table></figure>
+我用了一个位图资源，好像效果不太好。有些偏离。再试</li>
+</ol>
+<blockquote>
+<p>原载网易博客</p>
+</blockquote>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://wylmer.github.io/zh_CN/2009/vc-button/" data-id="cjdd383ej0007836h9sngpdi1" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>seguir:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="https://plus.google.com/102824714039668368931" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/wylmer" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/zh_CN/2009/debunk-ysu/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">més nou</strong>
+        <p class="article-nav-title">
+        
+            考燕大的孩纸们你们伤不起啊
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/zh_CN/2009/windows-sound-panel/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">antic</strong>
+        <p class="article-nav-title">Windows XP High Definition Audio前面板无声的解决方法</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感悟/">感悟</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">etiquetes</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/感悟/">感悟</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://www.gitbook.com/book/wylmer_cn/filesystem-hierarchy-standard/details">文件系统层次结构中文版</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Wylmer Wang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://wylmer.github.io/zh_CN/2009/vc-button/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

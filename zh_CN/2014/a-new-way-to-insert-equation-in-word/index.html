@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>一种在Word中插入LaTeX公式的思路 | Wylmer’s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="LaTeX 无疑是最好的公式排版软件，但是周围最常用的却是Word，羡慕LaTeX公式的便捷和美观，但又离不开Word，怎么办呢。这时，一般有以下解决方案：  安装公式输入插件，如Aurora，Mathtype，实现以LaTeX的方式输入，插件可以自动转化为嵌入式公式对象； 默默忍受XD  但是呢，公式输入插件有它的弊端。  首先，想正常显示和编辑公式，所有的协作者都需要安装同一版本的插件，这是非">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一种在Word中插入LaTeX公式的思路">
+<meta property="og:url" content="http://wylmer.github.io/zh_CN/2014/a-new-way-to-insert-equation-in-word/index.html">
+<meta property="og:site_name" content="Wylmer’s Blog">
+<meta property="og:description" content="LaTeX 无疑是最好的公式排版软件，但是周围最常用的却是Word，羡慕LaTeX公式的便捷和美观，但又离不开Word，怎么办呢。这时，一般有以下解决方案：  安装公式输入插件，如Aurora，Mathtype，实现以LaTeX的方式输入，插件可以自动转化为嵌入式公式对象； 默默忍受XD  但是呢，公式输入插件有它的弊端。  首先，想正常显示和编辑公式，所有的协作者都需要安装同一版本的插件，这是非">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2017-08-01T11:19:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一种在Word中插入LaTeX公式的思路">
+<meta name="twitter:description" content="LaTeX 无疑是最好的公式排版软件，但是周围最常用的却是Word，羡慕LaTeX公式的便捷和美观，但又离不开Word，怎么办呢。这时，一般有以下解决方案：  安装公式输入插件，如Aurora，Mathtype，实现以LaTeX的方式输入，插件可以自动转化为嵌入式公式对象； 默默忍受XD  但是呢，公式输入插件有它的弊端。  首先，想正常显示和编辑公式，所有的协作者都需要安装同一版本的插件，这是非">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-56934793-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Share ideas and experiences</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/About-Me/zh_CN/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    Sense categoria
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-a-new-way-to-insert-equation-in-word" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        一种在Word中插入LaTeX公式的思路
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/zh_CN/2014/a-new-way-to-insert-equation-in-word/" class="article-date">
+            <time datetime="2014-12-18T14:59:17.000Z" itemprop="datePublished">2014-12-18</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>LaTeX 无疑是最好的公式排版软件，但是周围最常用的却是Word，羡慕<code>LaTeX</code>公式的便捷和美观，但又离不开Word，怎么办呢。这时，一般有以下解决方案：</p>
+<ul>
+<li>安装公式输入插件，如<code>Aurora</code>，<code>Mathtype</code>，实现以LaTeX的方式输入，插件可以自动转化为嵌入式公式对象；</li>
+<li>默默忍受XD</li>
+</ul>
+<p>但是呢，公式输入插件有它的弊端。</p>
+<ul>
+<li>首先，想正常显示和编辑公式，所有的协作者<strong>都需要</strong>安装<strong>同一版本</strong>的插件，这是非常麻烦的，尤其是你要把文档发给别人看的时候。</li>
+<li>对于<code>Aurora</code>，是一家不知名的公司开发的，已经若干年不更新，虽然破解版的软件在32位的office 2010等版本上可以使用，但是已经有了<code>LaTeX</code>版本过旧、roaster格式无法生成、64位系统运行不正常等问题。</li>
+<li>对于<code>Mathtype</code>，它会在更新公式时自动把所有的公式转换为新版本，造成不安装<code>Mathtype</code>的Word无法编辑本来可以编辑的<strong>公式3.0</strong>对象。</li>
+<li>两个软件都是收费的。用破解毕竟不光彩。</li>
+</ul>
+<p>那么问题来了，有没有更好的办法输入公式呢？</p>
+<a id="more"></a>
+<p>嗯，微软说，为什么不用默认的公式！</p>
+<p>是的，我现在已经转用Word 07以上自带的默认公式了。效果虽然一般，但是兼容性好(但目前<code>WPS</code>读不出，中枪)，只要能打开<code>docx</code>就能显示和编辑，而且符合<code>mathml</code>标准，使得导入<code>mathml</code>公式成为可能，而且输入非常直观，比较傻瓜。</p>
+<p>难能可贵的是，Word公式已经支持了一些<code>LaTeX</code>公式的命令了，比如上下标、各种符号名等，除了参数不是用<code>{</code>和<code>}</code>括起来，基本上也可以用LeTeX方式输入了。嗯，一切似乎很美好，直到…………</p>
+<blockquote>
+<p>我遇到了<strong>文字不能自动斜体</strong>的BUG！搜索了一下，让人汗颜的是，这个BUG<strong>早在OFFICE 2007就出现了</strong>，而现在的<strong>OFFICE 2013</strong>中还没有解决。</p>
+</blockquote>
+<p>看来微软这样的大企业也是盛名之下，其实难副。尤其是OFFICE可是自家的拳头产品啊，这样的无视问题就不对了。</p>
+<p>那么问题又来了，怎么解决WORD这个SB问题呢。我找到了一种办法，供大家参考。有更好的办法欢迎告诉我。</p>
+<p>注意到WORD可以导入<code>mathml</code>格式的公式，有没有在LaTeX公式和<code>mathml</code>公式之间转换的简便方法呢？我想到了<strong><code>mathjax</code></strong>。是的，<code>mathjax</code>既可以显示公式，还可以显示公式的LaTeX源代码和<code>mathml</code>源代码，也就是说，它实现了两者的转换。</p>
+<p>那么如何得到<code>mathjax</code>公式呢？用<strong>在线Markdown编辑器</strong>。我们生活在一个幸福的时代，因为有这么多好工具可以使用。支持公式的在线Markdown编辑器，我推荐<a href="https://stackedit.io/editor" target="_blank" rel="noopener">StackEdit</a>和<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">作业部落</a>。最好的两个Markdown编辑器。</p>
+<p>于是问题解决。方案如下：</p>
+<ol>
+<li>打开两个网站之一，找个空白地方输入LaTeX公式，用<code>$$</code>和<code>$$</code>括起来，用过LaTeX的你懂的；</li>
+<li>在右侧预览窗口右击公式，选择<strong>Show Math As</strong>→<strong>MathML Code</strong>，一个窗口会弹出，里面是<code>MathML</code>代码，<code>Ctrl</code>+<code>A</code>、<code>Ctrl</code>+<code>C</code>复制它；</li>
+<li>在Word中要插入公式的地方按<code>Alt</code>+<code>=</code>，右击<strong>以纯文本方式粘贴</strong>。搞定。</li>
+</ol>
+<p>这一方式虽然笨，但是兼容性非常好，对我来说应该是个比较好的方案了，而且没有良心谴责。嗯。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://wylmer.github.io/zh_CN/2014/a-new-way-to-insert-equation-in-word/" data-id="cjdd383f70014836h3jr11prj" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>seguir:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="https://plus.google.com/102824714039668368931" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/wylmer" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/zh_CN/2014/Install-KDE-5-under-openSUSE-factory/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">més nou</strong>
+        <p class="article-nav-title">
+        
+            用 openSUSE factory 安装 KDE 5
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/zh_CN/2014/photo-sizes/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">antic</strong>
+        <p class="article-nav-title">各种证件照的尺寸</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感悟/">感悟</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">etiquetes</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/感悟/">感悟</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://www.gitbook.com/book/wylmer_cn/filesystem-hierarchy-standard/details">文件系统层次结构中文版</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Wylmer Wang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://wylmer.github.io/zh_CN/2014/a-new-way-to-insert-equation-in-word/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
