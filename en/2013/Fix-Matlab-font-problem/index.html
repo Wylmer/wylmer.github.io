@@ -12,7 +12,7 @@
     <meta name="description" content="To fix Matlab font problem that Chinese characters appear as blocks under Linux:  For cmd and workspace font blocks, go to File-&amp;gt;Preferences-&amp;gt;Fonts and choose a Chinese font for desktop code/tex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fix Matlab Chinese font rendering problem in Linx">
-<meta property="og:url" content="http://wylmer.github.io/en/2013/Fix-Matlab-font-problem/index.html">
+<meta property="og:url" content="http://blog.wylmer.wang/en/2013/Fix-Matlab-font-problem/index.html">
 <meta property="og:site_name" content="Wylmer’s Blog">
 <meta property="og:description" content="To fix Matlab font problem that Chinese characters appear as blocks under Linux:  For cmd and workspace font blocks, go to File-&amp;gt;Preferences-&amp;gt;Fonts and choose a Chinese font for desktop code/tex">
 <meta property="og:locale" content="en">
@@ -173,7 +173,7 @@ ga('send', 'pageview');
 <li><p>For cmd and workspace font blocks, go to <code>File</code>-&gt;<code>Preferences</code>-&gt;<code>Fonts</code> and choose a Chinese font for desktop code/text. <strong>WQY microHei</strong> is recommended.</p>
 </li>
 <li><p>For address bar and file dialog char blocks, excute the following commands:</p>
- <figure class="highlight console"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cd your_matlab_install_path/sys/java/jre/glnx86(64)/jre/lib/fonts/</div><div class="line">(sudo) mkdir fallback</div><div class="line">(sudo) cp /usr/share/fonts/truetype/wqy/wqy-microhei.ttc fallback/</div><div class="line">cd fallback</div><div class="line">(sudo) mkfontscale</div><div class="line">cd ..</div><div class="line">(sudo) chmod 644 ./fonts.dir</div><div class="line"><span class="meta">#</span><span class="bash"> sudo cat fallback/fonts.scale</span></div></pre></td></tr></table></figure>
+ <figure class="highlight console"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cd your_matlab_install_path/sys/java/jre/glnx86(64)/jre/lib/fonts/</div><div class="line">(sudo) mkdir fallback</div><div class="line">(sudo) cp /usr/share/fonts/truetype/wqy/wqy-microhei.ttc fallback/</div><div class="line">cd fallback</div><div class="line">(sudo) mkfontscale</div><div class="line">cd ..</div><div class="line">(sudo) chmod 644 ./fonts.dir</div><div class="line"><span class="meta">#</span> sudo cat fallback/fonts.scale</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><code>()</code> means optional if you use <em>amd64</em> or if you installed matlab in system path.</p>
@@ -184,7 +184,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://wylmer.github.io/en/2013/Fix-Matlab-font-problem/" data-id="cjdd383fq0026836h5bp52d0l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blog.wylmer.wang/en/2013/Fix-Matlab-font-problem/" data-id="cjdd3coe10004a46hncnwo8p8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -374,7 +374,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://wylmer.github.io/en/2013/Fix-Matlab-font-problem/';
+    var disqus_url = 'http://blog.wylmer.wang/en/2013/Fix-Matlab-font-problem/';
     
     (function() {
     var dsq = document.createElement('script');
